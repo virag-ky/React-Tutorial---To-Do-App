@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TodoItem({ todo, handleChangeProps }) {
+function TodoItem({ todo, handleChangeProps, deleteTodoProps }) {
   return (
     <div className="todo-item">
       <input
@@ -10,6 +10,9 @@ function TodoItem({ todo, handleChangeProps }) {
         onChange={() => handleChangeProps(todo.id)}
       />
       {todo.title}
+      <button type="button" onClick={() => deleteTodoProps(todo.id)}>
+        Delete
+      </button>
     </div>
   );
 }
@@ -21,6 +24,7 @@ TodoItem.propTypes = {
     completed: PropTypes.bool,
   }).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
