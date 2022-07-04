@@ -19,7 +19,7 @@ function TodoItem({ todo, handleChangeProps, deleteTodoProps }) {
 
 TodoItem.propTypes = {
   todo: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     title: PropTypes.string,
     completed: PropTypes.bool,
   }).isRequired,
