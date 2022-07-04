@@ -25,6 +25,7 @@ class TodoContainer extends React.Component {
           completed: false,
         },
       ],
+      editing: false,
     };
   }
 
@@ -59,8 +60,22 @@ class TodoContainer extends React.Component {
     }));
   };
 
+  handleEditing = () => {
+    this.setState({
+      editing: true,
+    });
+  };
+
   render() {
-    const { todos } = this.state;
+    const { todos, editing } = this.state;
+    const viewMode = {};
+    const editMode = {};
+
+    if (editing) {
+      viewMode.display = 'none';
+    } else {
+      editMode.display = 'none';
+    }
     return (
       <div>
         <Header />
@@ -69,6 +84,9 @@ class TodoContainer extends React.Component {
           todos={todos}
           handleChangeProps={this.handleChange}
           deleteTodoProps={this.delTodo}
+          handleEditing={this.handleEditing}
+          viewMode={viewMode}
+          editMode={editMode}
         />
       </div>
     );

@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-function TodoList({ todos, handleChangeProps, deleteTodoProps }) {
+function TodoList({
+  todos,
+  handleChangeProps,
+  deleteTodoProps,
+  handleEditing,
+  viewMode,
+  editMode,
+}) {
   return (
     <ul>
       {todos.map((todo) => (
@@ -11,6 +18,9 @@ function TodoList({ todos, handleChangeProps, deleteTodoProps }) {
           todo={todo}
           handleChangeProps={handleChangeProps}
           deleteTodoProps={deleteTodoProps}
+          handleEditing={handleEditing}
+          viewMode={viewMode}
+          editMode={editMode}
         />
       ))}
     </ul>
@@ -27,6 +37,13 @@ TodoList.propTypes = {
   ).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
+  handleEditing: PropTypes.func.isRequired,
+  viewMode: PropTypes.shape({
+    display: PropTypes.string,
+  }).isRequired,
+  editMode: PropTypes.shape({
+    display: PropTypes.string,
+  }).isRequired,
 };
 
 export default TodoList;

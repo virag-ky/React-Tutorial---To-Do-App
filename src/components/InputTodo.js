@@ -19,10 +19,14 @@ class InputTodo extends Component {
     e.preventDefault();
     const { addTodoProps } = this.props;
     const { title } = this.state;
-    addTodoProps(title);
-    this.setState({
-      title: '',
-    });
+    if (title.trim()) {
+      addTodoProps(title);
+      this.setState({
+        title: '',
+      });
+    } else {
+      alert('Please write item');
+    }
   };
 
   render() {
@@ -35,7 +39,7 @@ class InputTodo extends Component {
           value={title}
           onChange={this.onChange}
         />
-        <button type="button">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
