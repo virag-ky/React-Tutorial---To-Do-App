@@ -66,6 +66,20 @@ class TodoContainer extends React.Component {
     });
   };
 
+  setUpdate = (updatedTitle, id) => {
+    this.setState((state) => ({
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: updatedTitle,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
   render() {
     const { todos, editing } = this.state;
     const viewMode = {};
@@ -77,17 +91,20 @@ class TodoContainer extends React.Component {
       editMode.display = 'none';
     }
     return (
-      <div>
-        <Header />
-        <InputTodo addTodoProps={this.addTodoItem} />
-        <TodoList
-          todos={todos}
-          handleChangeProps={this.handleChange}
-          deleteTodoProps={this.delTodo}
-          handleEditing={this.handleEditing}
-          viewMode={viewMode}
-          editMode={editMode}
-        />
+      <div className="container">
+        <div className="inner">
+          <Header />
+          <InputTodo addTodoProps={this.addTodoItem} />
+          <TodoList
+            todos={todos}
+            handleChangeProps={this.handleChange}
+            deleteTodoProps={this.delTodo}
+            handleEditing={this.handleEditing}
+            viewMode={viewMode}
+            editMode={editMode}
+            setUpdate={this.setUpdate}
+          />
+        </div>
       </div>
     );
   }

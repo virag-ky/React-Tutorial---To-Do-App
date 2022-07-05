@@ -9,6 +9,7 @@ function TodoList({
   handleEditing,
   viewMode,
   editMode,
+  setUpdate,
 }) {
   return (
     <ul>
@@ -21,6 +22,7 @@ function TodoList({
           handleEditing={handleEditing}
           viewMode={viewMode}
           editMode={editMode}
+          setUpdate={setUpdate}
         />
       ))}
     </ul>
@@ -44,6 +46,7 @@ TodoList.propTypes = {
   editMode: PropTypes.shape({
     display: PropTypes.string,
   }).isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodoList;
