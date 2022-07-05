@@ -102,20 +102,22 @@ class TodoContainer extends React.Component {
       editMode.display = 'none';
     }
     return (
-      <div className="container">
-        <div className="inner">
-          <Header />
-          <InputTodo addTodoProps={this.addTodoItem} />
-          <TodoList
-            todos={todos}
-            handleChangeProps={this.handleChange}
-            deleteTodoProps={this.delTodo}
-            handleEditing={this.handleEditing}
-            viewMode={viewMode}
-            editMode={editMode}
-            setUpdate={this.setUpdate}
-            handleUpdatedDone={this.handleUpdatedDone}
-          />
+      <div>
+        <div className="container">
+          <div className="inner">
+            <Header />
+            <InputTodo addTodoProps={this.addTodoItem} />
+            <TodoList
+              todos={todos}
+              handleChangeProps={this.handleChange}
+              deleteTodoProps={this.delTodo}
+              handleEditing={this.handleEditing}
+              viewMode={viewMode}
+              editMode={editMode}
+              setUpdate={this.setUpdate}
+              handleUpdatedDone={this.handleUpdatedDone}
+            />
+          </div>
         </div>
       </div>
     );
