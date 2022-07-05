@@ -2,15 +2,18 @@
 
 # React Tutorial -- To-Do App
 
-> In this project, we consolidate our knowledge about React, components, props, state, and hooks, by following a To-Do app tutorial.
+> In this project, we consolidate our knowledge about React, components, props, state, and hooks, by following a To-Do app tutorial. The user can add/delete/edit an item. The list items are stored in the local storage.
 
 ## Built With
 
 - Create-React-App (CRA)
 - React
 - CSS
+- JavaScript
 
 ## Live Demo
+
+![](../react-todo-app/src/demo.png)
 
 ## Getting Started
 
