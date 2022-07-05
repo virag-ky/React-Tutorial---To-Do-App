@@ -10,6 +10,7 @@ function TodoList({
   viewMode,
   editMode,
   setUpdate,
+  handleUpdatedDone,
 }) {
   return (
     <ul>
@@ -23,6 +24,7 @@ function TodoList({
           viewMode={viewMode}
           editMode={editMode}
           setUpdate={setUpdate}
+          handleUpdatedDone={handleUpdatedDone}
         />
       ))}
     </ul>
@@ -47,6 +49,7 @@ TodoList.propTypes = {
     display: PropTypes.string,
   }).isRequired,
   setUpdate: PropTypes.func.isRequired,
+  handleUpdatedDone: PropTypes.func.isRequired,
 };
 
 export default TodoList;

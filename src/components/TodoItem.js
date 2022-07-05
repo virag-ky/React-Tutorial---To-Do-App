@@ -9,6 +9,7 @@ function TodoItem({
   viewMode,
   editMode,
   setUpdate,
+  handleUpdatedDone,
 }) {
   const completedStyle = {
     fontStyle: 'italic',
@@ -39,6 +40,7 @@ function TodoItem({
         onChange={(e) => {
           setUpdate(e.target.value, todo.id);
         }}
+        onKeyDown={handleUpdatedDone}
       />
     </li>
   );
@@ -60,6 +62,7 @@ TodoItem.propTypes = {
     display: PropTypes.string,
   }).isRequired,
   setUpdate: PropTypes.func.isRequired,
+  handleUpdatedDone: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

@@ -11,22 +11,27 @@ class TodoContainer extends React.Component {
       todos: [
         {
           id: uuidv4(),
-          title: 'Setup development environment',
-          completed: true,
-        },
-        {
-          id: uuidv4(),
-          title: 'Develop website and add content',
-          completed: false,
-        },
-        {
-          id: uuidv4(),
-          title: 'Deploy to live server',
+          title: 'study',
           completed: false,
         },
       ],
       editing: false,
     };
+  }
+
+  componentDidMount() {
+    const temp = localStorage.getItem('list');
+    const loadedTodos = JSON.parse(temp);
+    if (loadedTodos) {
+      this.setState({
+        todos: loadedTodos,
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    const { todos } = this.state;
+    localStorage.setItem('list', JSON.stringify(todos));
   }
 
   handleChange = (id) => {
@@ -80,6 +85,12 @@ class TodoContainer extends React.Component {
     }));
   };
 
+  handleUpdatedDone = (event) => {
+    if (event.key === 'Enter') {
+      this.setState({ editing: false });
+    }
+  };
+
   render() {
     const { todos, editing } = this.state;
     const viewMode = {};
@@ -103,6 +114,7 @@ class TodoContainer extends React.Component {
             viewMode={viewMode}
             editMode={editMode}
             setUpdate={this.setUpdate}
+            handleUpdatedDone={this.handleUpdatedDone}
           />
         </div>
       </div>
