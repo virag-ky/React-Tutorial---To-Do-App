@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { FaPlusCircle } from "react-icons/fa";
 
 class InputTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
+      title: "",
     };
   }
 
@@ -22,7 +23,7 @@ class InputTodo extends Component {
     if (title.trim()) {
       addTodoProps(title);
       this.setState({
-        title: '',
+        title: "",
       });
     }
   };
@@ -39,7 +40,7 @@ class InputTodo extends Component {
           onChange={this.onChange}
         />
         <button type="submit" className="input-submit">
-          Submit
+          <FaPlusCircle />
         </button>
       </form>
     );
