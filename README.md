@@ -12,6 +12,7 @@
 - JavaScript
 
 ## Live Demo
+![demo](https://user-images.githubusercontent.com/79658534/177497649-f2befa73-44c6-4975-9d41-679193043c40.png)
 
 ![](../react-todo-app/src/demo.png)
 
