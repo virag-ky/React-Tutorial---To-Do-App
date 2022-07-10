@@ -90,6 +90,10 @@ h1 {
   margin-right: 15px;
 }
 
+.checkbox:hover {
+  cursor: pointer;
+}
+
 .item button {
   font-size: 13px;
   background: #f1f3f4;

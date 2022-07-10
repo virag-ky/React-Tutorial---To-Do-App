@@ -29,7 +29,7 @@ function TodoItem({
           onChange={() => handleChangeProps(todo.id)}
         />
         <button type="button" onClick={() => deleteTodoProps(todo.id)}>
-          <FaTrash />
+          <FaTrash style={{ width: '20px' }} />
         </button>
         <span style={todo.completed ? completedStyle : null}>{todo.title}</span>
       </div>
